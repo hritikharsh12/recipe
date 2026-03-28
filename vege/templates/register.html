@@ -1,0 +1,36 @@
+{%extends "base.html"%}
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+<div class="container mt-5">
+<form class="col-6 mx-auto card p-3 shadow-1g" method = "post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <h2>Register</h2>
+    <hr>
+<div class="mb-3">
+  <label for="formGroupExampleInput" class="form-label">first name</label>
+  <input type="text" class="form-control" name="first_name" id="formGroupExampleInput" placeholder="first name">
+</div>
+
+<div class="mb-3">
+  <label for="formGroupExampleInput" class="form-label">last name</label>
+  <input type="text" class="form-control" name="last_name" id="formGroupExampleInput" placeholder="last name">
+</div>
+
+<div class="mb-3">
+  <label for="formGroupExampleInput" class="form-label">email</label>
+  <input type="email" class="form-control" name="email" id="formGroupExampleInput" placeholder="email">
+</div>
+<div class="mb-3">
+  <label for="formGroupExampleInput2" class="form-label">Password</label>
+  <input type="password" class="form-control" name="password" id="formGroupExampleInput2" placeholder="password">
+</div>
+<button type="submit" class="btn btn-success">Register</button>
+</form>
+</div>
+{% endblock %}
